@@ -1,6 +1,7 @@
 {
   "topic": "The current and future influence of AI: what is likely to change, what is likely to remain stable, and how AI may reshape cybersecurity and security more broadly.",
   "model": "sonnet",
+  "effort": "high",
   "max_questions": 200,
   "default_target_questions": 5,
   "checkpoint_every": 10,

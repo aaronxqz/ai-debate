@@ -153,6 +153,7 @@ The stages are a guide rail, not a fixed script. The agents decide the specific 
 Open `config.json` to change settings. Relevant fields:
 
 - `model`: Claude Code model alias, initially `sonnet`. Use an alias supported by your installed CLI.
+- `effort`: passed to the CLI as `--effort` (`low`, `medium`, `high`, `xhigh`, `max`), or `null` to use the model's default. `high` is the shipped default: it pushes back against generic questions and premature agreement (see "agents sound repetitive" in Troubleshooting) without paying for `max`-level deliberation on every short 80-150 word turn. Lower it to `low` or `medium` for cheap pilot runs where quality matters less than confirming the pipeline works.
 - `use_bare_mode`: adds `--bare` to each call when `true`. **Leave this `false` if you authenticate via `claude /login` (claude.ai account / Pro subscription)** — in `--bare` mode the CLI only reads `ANTHROPIC_API_KEY` or `apiKeyHelper`; it never reads OAuth or keychain credentials, and every call fails with `Not logged in · Please run /login`. Only set it to `true` if you intentionally run on `ANTHROPIC_API_KEY` billing.
 - `max_questions`: hard project limit, currently 200.
 - `default_target_questions`: default run size, intentionally 5.

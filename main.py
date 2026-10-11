@@ -110,6 +110,10 @@ def load_config() -> dict[str, Any]:
     max_budget = config.get("max_budget_usd_per_call")
     if max_budget is not None and (not isinstance(max_budget, (int, float)) or max_budget <= 0):
         raise ValueError("config.max_budget_usd_per_call must be a positive number or null.")
+    effort = config.get("effort")
+    valid_efforts = {"low", "medium", "high", "xhigh", "max"}
+    if effort is not None and effort not in valid_efforts:
+        raise ValueError(f"config.effort must be one of {sorted(valid_efforts)} or null.")
     if not isinstance(config.get("stages"), list) or not config["stages"]:
         raise ValueError("config.stages must be a non-empty list.")
     return config
@@ -391,6 +395,9 @@ def call_claude(
     max_budget = config.get("max_budget_usd_per_call")
     if max_budget is not None:
         cmd.extend(["--max-budget-usd", str(max_budget)])
+    effort = config.get("effort")
+    if effort is not None:
+        cmd.extend(["--effort", str(effort)])
     if config.get("use_bare_mode", True):
         cmd.append("--bare")
     if config.get("disable_session_persistence", True):
