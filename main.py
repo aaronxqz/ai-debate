@@ -107,6 +107,9 @@ def load_config() -> dict[str, Any]:
         raise ValueError("config.default_target_questions must be between 1 and max_questions.")
     if checkpoint < 1:
         raise ValueError("config.checkpoint_every must be at least 1.")
+    max_budget = config.get("max_budget_usd_per_call")
+    if max_budget is not None and (not isinstance(max_budget, (int, float)) or max_budget <= 0):
+        raise ValueError("config.max_budget_usd_per_call must be a positive number or null.")
     if not isinstance(config.get("stages"), list) or not config["stages"]:
         raise ValueError("config.stages must be a non-empty list.")
     return config
@@ -385,6 +388,9 @@ def call_claude(
         "--output-format", "json",
         "--json-schema", json.dumps(OUTPUT_SCHEMA, separators=(",", ":"), ensure_ascii=False),
     ]
+    max_budget = config.get("max_budget_usd_per_call")
+    if max_budget is not None:
+        cmd.extend(["--max-budget-usd", str(max_budget)])
     if config.get("use_bare_mode", True):
         cmd.append("--bare")
     if config.get("disable_session_persistence", True):

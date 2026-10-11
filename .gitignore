@@ -1,2 +1,7 @@
 __pycache__/
 *.py[cod]
+logs/*.log
+logs/*.jsonl
+logs/*.md
+state/*.json
+archive/run-*

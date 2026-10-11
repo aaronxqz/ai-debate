@@ -158,6 +158,7 @@ Open `config.json` to change settings. Relevant fields:
 - `default_target_questions`: default run size, intentionally 5.
 - `checkpoint_every`: manual usage check every 10 answered questions.
 - `cli_timeout_seconds`: maximum time for one CLI call.
+- `max_budget_usd_per_call`: passed to the CLI as `--max-budget-usd`; the CLI aborts a single call if its API cost would exceed this. Set to `null` to disable. This is a per-call cap, not a run-wide budget; it does not replace the manual `/usage` checkpoints.
 - `recent_history_pairs`: number of recent question-and-answer pairs sent to each agent.
 - `max_memory_items_per_category`: cap on stored shared memory notes in each category.
 - `stages`: topic plan and question ranges.

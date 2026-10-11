@@ -5,6 +5,7 @@
   "default_target_questions": 5,
   "checkpoint_every": 10,
   "cli_timeout_seconds": 300,
+  "max_budget_usd_per_call": 0.5,
   "max_response_words": 150,
   "recent_history_pairs": 4,
   "max_memory_items_per_category": 6,
