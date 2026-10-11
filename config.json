@@ -1,0 +1,64 @@
+{
+  "topic": "The current and future influence of AI: what is likely to change, what is likely to remain stable, and how AI may reshape cybersecurity and security more broadly.",
+  "model": "sonnet",
+  "max_questions": 200,
+  "default_target_questions": 5,
+  "checkpoint_every": 10,
+  "cli_timeout_seconds": 300,
+  "max_response_words": 150,
+  "recent_history_pairs": 4,
+  "max_memory_items_per_category": 6,
+  "cli_executable": "claude",
+  "use_bare_mode": false,
+  "disable_session_persistence": true,
+  "stages": [
+    {
+      "start": 1,
+      "end": 15,
+      "name": "Foundations and definitions",
+      "guidance": "Define what AI influence means, distinguish present capabilities from forecasts, identify the most important assumptions, and clarify what 'security' includes."
+    },
+    {
+      "start": 16,
+      "end": 40,
+      "name": "Society and productivity",
+      "guidance": "Explore work, education, software development, scientific research, creativity, information access, institutions, and the distribution of benefits."
+    },
+    {
+      "start": 41,
+      "end": 75,
+      "name": "Cybersecurity transformation",
+      "guidance": "Explore AI-assisted defense and attacks at a high level, vulnerability discovery, social engineering, software supply chains, reliability, incident response, and unequal access. Keep discussion defensive or conceptual; do not provide operational instructions for compromise."
+    },
+    {
+      "start": 76,
+      "end": 100,
+      "name": "What may not change",
+      "guidance": "Examine human incentives, accountability, access control, trust, organizational behavior, and enduring security principles. Challenge claims that technology alone solves social or institutional problems."
+    },
+    {
+      "start": 101,
+      "end": 125,
+      "name": "Long-term development",
+      "guidance": "Explore increasing capability, agent autonomy, concentration of power, labor transitions, governance, dependency, and plausible long-term risks. Separate evidence from speculation."
+    },
+    {
+      "start": 126,
+      "end": 145,
+      "name": "Scenario analysis",
+      "guidance": "Compare optimistic, baseline, and pessimistic scenarios. Identify causal chains, conditions, early indicators, and evidence that would change each forecast."
+    },
+    {
+      "start": 146,
+      "end": 180,
+      "name": "Challenge and stress-test",
+      "guidance": "Challenge the strongest claims made so far, find counterexamples, test assumptions, look for contradictions, steelman the opposing view, and revise positions when warranted."
+    },
+    {
+      "start": 181,
+      "end": 200,
+      "name": "Convergence and final questions",
+      "guidance": "Synthesize the most important findings, resolve disagreements where possible, preserve genuine uncertainty, and formulate specific predictions and practical implications."
+    }
+  ]
+}
